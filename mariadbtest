@@ -1,0 +1,17 @@
+import csv
+import mariadb
+import os
+import configparser
+
+os.chdir("/home/siqfan/PHENOTYPE")
+file="DietCompLyf_RFS_EFS_REC_Data_3Jul2014_PE_with_add_foods.xls"
+
+sql1="INSERT INTO DietComply(Patient,rfsdata,rfsevent,rfstime,esfdata,efsevent,efsdata) VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')"
+
+with open(file) as f:
+	reader=csv.reader(f,delimiter="\t")
+	next(reader, None)
+
+for row in reader:
+	print(row)
+	
